@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop   
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+        http://www.springframework.org/schema/context   
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd   
+        http://www.springframework.org/schema/mvc   
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd   
+        http://www.springframework.org/schema/tx   
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/task     
+    	http://www.springframework.org/schema/task/spring-task-3.0.xsd
+    	http://www.springframework.org/schema/util
+    	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+		<description>OLAP数据源配置 </description>
+	<context:component-scan base-package="com.baidu" />
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:/jdbc-olap.properties</value>
+				<value>classpath*:/report-biz.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<util:properties id="olapConfigProperties" location="classpath:report-biz.properties"/>
+
+	<!-- xxx olap configure start -->
+	
+	<bean id="olapDataSource" abstract="true"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>${jdbc.olap.driverClassName}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${jdbc.olap.maxPoolSize}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${jdbc.olap.minPoolSize}</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+			<value>${jdbc.olap.idleConnectionTestPeriod}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${jdbc.olap.maxIdleTime}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_000" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_000.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_000.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_000.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_001" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_001.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_001.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_001.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_010" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_010.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_010.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_010.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_011" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_011.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_011.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_011.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_100" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_100.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_100.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_100.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_101" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_101.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_101.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_101.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_110" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_110.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_110.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_110.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_111" parent="olapDataSource">
+		<property name="jdbcUrl">
+			<value>${jdbc.olap_111.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.olap_111.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.olap_111.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="vdb_olap_000" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_000</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="vdb_olap_001" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_001</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="vdb_olap_010" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_010</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+		<bean id="vdb_olap_011" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_011</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="vdb_olap_100" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_100</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="vdb_olap_101" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_101</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="vdb_olap_110" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_110</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="vdb_olap_111" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_111</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="olapMultiDataSource"
+		class="com.baidu.unbiz.olap.datasource.MultiDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="olap_000" value-ref="olap_000" />
+				<entry key="olap_001" value-ref="olap_001" />
+				<entry key="olap_010" value-ref="olap_010" />
+				<entry key="olap_011" value-ref="olap_011" />
+				<entry key="olap_100" value-ref="olap_100" />
+				<entry key="olap_101" value-ref="olap_101" />
+				<entry key="olap_110" value-ref="olap_110" />
+				<entry key="olap_111" value-ref="olap_111" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="olap_000" />
+		<property name="multiDataSourceKeyContext">
+			<ref local="olapMultiDSKeyContext" />
+		</property>
+	</bean>
+	
+	<bean id="olapMultiDSKeyContext" class="com.baidu.unbiz.olap.datasource.MultiDataSourceKeyContext">
+		<property name="router">
+			<ref local="olapRouter" />
+		</property>
+		<property name="dbName" value="olapDB" />
+	</bean>
+	
+	<bean id="olapRouter" class="com.baidu.unbiz.olap.router.IDRouter">
+		<property name="prefix" value="vdb_olap"/>
+		<property name="dbShardingRule" >
+			<ref local="olapShardingRule" />
+		</property>
+	</bean>
+	<bean id="olapShardingRule" class="com.baidu.unbiz.olap.rule.NormalDBShardingRuleImpl">
+		<property name="shardingNum" value="${olap.sharding.num}"/>
+	</bean>
+	
+	<bean id="olapJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="olapMultiDataSource"/>
+	</bean>
+	
+	<!-- Transaction  config --> 
+	<bean id="olapTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  		<property name="dataSource" ref="olapMultiDataSource" />
+ 	</bean>
+	<tx:annotation-driven transaction-manager="olapTransactionManager" />
+	<!-- xxx olap configure end -->
+	
+	
+	<!-- yyy olap configure start -->
+	
+	<bean id="yyyOlapDataSource" abstract="true"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>${jdbc.olap.driverClassName}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${jdbc.olap.maxPoolSize}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${jdbc.olap.minPoolSize}</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+			<value>${jdbc.olap.idleConnectionTestPeriod}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${jdbc.olap.maxIdleTime}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_0" parent="yyyOlapDataSource">
+		<property name="jdbcUrl">
+			<value>${yyy.jdbc.olap_0.url}</value>
+		</property>
+		<property name="user">
+			<value>${yyy.jdbc.olap_0.username}</value>
+		</property>
+		<property name="password">
+			<value>${yyy.jdbc.olap_0.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_1" parent="yyyOlapDataSource">
+		<property name="jdbcUrl">
+			<value>${yyy.jdbc.olap_1.url}</value>
+		</property>
+		<property name="user">
+			<value>${yyy.jdbc.olap_1.username}</value>
+		</property>
+		<property name="password">
+			<value>${yyy.jdbc.olap_1.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_2" parent="yyyOlapDataSource">
+		<property name="jdbcUrl">
+			<value>${yyy.jdbc.olap_2.url}</value>
+		</property>
+		<property name="user">
+			<value>${yyy.jdbc.olap_2.username}</value>
+		</property>
+		<property name="password">
+			<value>${yyy.jdbc.olap_2.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="olap_3" parent="yyyOlapDataSource">
+		<property name="jdbcUrl">
+			<value>${yyy.jdbc.olap_3.url}</value>
+		</property>
+		<property name="user">
+			<value>${yyy.jdbc.olap_3.username}</value>
+		</property>
+		<property name="password">
+			<value>${yyy.jdbc.olap_3.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="yyy_vdb_olap" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>olap_0</value>
+				<value>olap_1</value>
+				<value>olap_2</value>
+				<value>olap_3</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="yyyOlapMultiDataSource"
+		class="com.baidu.unbiz.olap.datasource.MultiDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="olap_0" value-ref="olap_0" />
+				<entry key="olap_1" value-ref="olap_1" />
+				<entry key="olap_2" value-ref="olap_2" />
+				<entry key="olap_3" value-ref="olap_3" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="olap_0" />
+		<property name="multiDataSourceKeyContext">
+			<ref local="yyyOlapMultiDSKeyContext" />
+		</property>
+	</bean>
+	
+	<bean id="yyyOlapMultiDSKeyContext" class="com.baidu.unbiz.olap.datasource.MultiDataSourceKeyContext">
+		<property name="router">
+			<ref local="yyyOlapRouter" />
+		</property>
+		<property name="dbName" value="yyyOlapDB" />
+	</bean>
+	
+	<bean id="yyyOlapRouter" class="com.baidu.unbiz.olap.router.IDRouter">
+		<property name="prefix" value="yyy_vdb_olap"/>
+		<property name="dbShardingRule" >
+			<ref local="yyyOlapShardingRule" />
+		</property>
+	</bean>
+	<bean id="yyyOlapShardingRule" class="com.baidu.unbiz.olap.rule.NormalDBShardingRuleImpl">
+		<property name="shardingNum" value="${yyy.olap.sharding.num}"/>
+	</bean>
+	
+	<bean id="yyyOlapJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="yyyOlapMultiDataSource"/>
+	</bean>
+	
+	<!-- Transaction  config --> 
+	<bean id="yyyOlapTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  		<property name="dataSource" ref="yyyOlapMultiDataSource" />
+ 	</bean>
+	<tx:annotation-driven transaction-manager="yyyOlapTransactionManager" />
+	<!-- yyy olap configure end -->
+	
+	
+	<!-- zzz olap configure start -->
+
+	<!-- c3p0或dbcp可选，以下zzz产品线的PALO采用dbcp配置 -->
+	<bean id="zzzOlapDataSource" abstract="true"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		 <property name="driverClassName" value="com.mysql.jdbc.Driver"/>   
+        <!--maxActive: 最大连接数量-->    
+        <property name="maxActive" value="150"/>  
+        <!--minIdle: 最小空闲连接-->    
+        <property name="minIdle" value="5"/>  
+        <!--maxIdle: 最大空闲连接-->    
+        <property name="maxIdle" value="20"/>  
+        <!--initialSize: 初始化连接-->    
+        <property name="initialSize" value="30"/>  
+        <!-- 连接被泄露时是否打印 -->  
+        <property name="logAbandoned" value="true"/>  
+        <!--removeAbandoned: 是否自动回收超时连接-->    
+        <property name="removeAbandoned"  value="true"/>  
+        <!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->    
+        <property name="removeAbandonedTimeout" value="10"/>  
+        <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->  
+        <property name="maxWait" value="1000"/>  
+        <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->  
+        <property name="timeBetweenEvictionRunsMillis" value="10000"/>  
+        <!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->  
+        <property name="numTestsPerEvictionRun" value="10"/>  
+        <!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->  
+        <property name="minEvictableIdleTimeMillis" value="10000"/>  
+        <property name="validationQuery" value="SELECT NOW()"/>  
+	</bean>
+	
+	<!--  
+ 	<bean id="zzzOlapDataSource" abstract="true"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>${jdbc.olap.driverClassName}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${jdbc.olap.maxPoolSize}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${jdbc.olap.minPoolSize}</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+			<value>${jdbc.olap.idleConnectionTestPeriod}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${jdbc.olap.maxIdleTime}</value>
+		</property>
+	</bean>
+	-->
+	
+	<bean id="palo_0" parent="zzzOlapDataSource">
+		<property name="url">
+			<value>${zzz.jdbc.olap_0.url}</value>
+		</property>
+		<property name="username">
+			<value>${zzz.jdbc.olap_0.username}</value>
+		</property>
+		<property name="password">
+			<value>${zzz.jdbc.olap_0.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="zzz_vdb_olap" class="com.baidu.unbiz.olap.datasource.VirtualDataSource">
+		<property name="masterSet">
+			<list>
+				<value>palo_0</value>
+			</list>
+		</property>
+		<property name="loadbalance" value="1" />
+	</bean>
+	
+	<bean id="zzzOlapMultiDataSource"
+		class="com.baidu.unbiz.olap.datasource.MultiDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="palo_0" value-ref="palo_0" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="palo_0" />
+		<property name="multiDataSourceKeyContext">
+			<ref local="zzzOlapMultiDSKeyContext" />
+		</property>
+	</bean>
+	
+	<bean id="zzzOlapMultiDSKeyContext" class="com.baidu.unbiz.olap.datasource.MultiDataSourceKeyContext">
+		<property name="router">
+			<ref local="zzzOlapRouter" />
+		</property>
+		<property name="dbName" value="zzzOlapDB" />
+	</bean>
+	
+	<bean id="zzzOlapRouter" class="com.baidu.unbiz.olap.router.IDRouter">
+		<property name="prefix" value="zzz_vdb_olap"/>
+		<property name="dbShardingRule" >
+			<ref local="zzzOlapShardingRule" />
+		</property>
+	</bean>
+	<bean id="zzzOlapShardingRule" class="com.baidu.unbiz.olap.rule.NormalDBShardingRuleImpl">
+		<property name="shardingNum" value="${zzz.olap.sharding.num}"/>
+	</bean>
+	
+	<bean id="zzzOlapJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="zzzOlapMultiDataSource"/>
+	</bean>
+	
+	<!-- Transaction  config -->
+	<bean id="zzzOlapTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  		<property name="dataSource" ref="zzzOlapMultiDataSource" />
+ 	</bean>
+	<tx:annotation-driven transaction-manager="zzzOlapTransactionManager" />
+	
+	<!-- zzz olap configure end -->
+	
+	
+	<!-- data source alive monitor -->
+	<bean id="dbMonitorTask" class="com.baidu.unbiz.olap.monitor.DataSourceMonitorTask">
+		<property name="dataSourceList">
+			<list>
+				<ref local="vdb_olap_000"/>
+				<ref local="vdb_olap_001"/>
+				<ref local="vdb_olap_010"/>
+				<ref local="vdb_olap_011"/>
+				<ref local="vdb_olap_100"/>
+				<ref local="vdb_olap_101"/>
+				<ref local="vdb_olap_110"/>
+				<ref local="vdb_olap_111"/>
+				<ref local="yyy_vdb_olap"/>
+			    <ref local="zzz_vdb_olap"/>
+			</list>
+		</property>
+	</bean>
+	<task:scheduled-tasks>  
+        <task:scheduled ref="dbMonitorTask" method="checkDataSource" cron="1/60 * * * * ?" /> 
+    </task:scheduled-tasks>
+	
+</beans>

@@ -18,7 +18,7 @@ import com.baidu.unbiz.olap.demo.xxx.service.GroupRequest;
 import com.baidu.unbiz.olap.demo.xxx.service.GroupStatService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext-olap.xml")
+@ContextConfiguration(locations = "classpath:applicationContext-test.xml")
 public class OlapBatchServiceTest {
 
     @Resource(name = "groupStatServiceImpl")

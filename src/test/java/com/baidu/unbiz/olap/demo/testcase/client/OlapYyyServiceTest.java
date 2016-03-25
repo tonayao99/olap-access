@@ -33,7 +33,7 @@ import com.baidu.unbiz.olap.demo.yyy.service.impl.DspStatServiceWithCacheImpl;
  * @dateTime 2014-6-24 下午5:34:52
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext-olap.xml")
+@ContextConfiguration(locations = "classpath:applicationContext-test.xml")
 public class OlapYyyServiceTest {
 
     @Resource(name = "multiTableStatServiceImpl")

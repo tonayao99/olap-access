@@ -25,7 +25,7 @@ import com.baidu.unbiz.olap.demo.zzz.palo.service.SiteStatService;
  * @dateTime 2015-7-30 上午11:05:49
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext-olap.xml")
+@ContextConfiguration(locations = "classpath:applicationContext-test.xml")
 public class OlapZzzServiceTest {
 
     @Resource(name = "siteStatServiceImpl")

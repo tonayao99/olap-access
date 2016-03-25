@@ -27,7 +27,7 @@ import com.baidu.unbiz.olap.demo.xxx.service.GroupUvStatService;
  * @dateTime 2015-7-17 下午2:58:02
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext-olap.xml")
+@ContextConfiguration(locations = "classpath:applicationContext-test.xml")
 public class OlapXxxServiceTest {
 
     @Resource(name = "groupStatServiceImpl")

@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.util;
+package com.baidu.unbiz.olap.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

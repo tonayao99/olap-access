@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.baidu.unbiz.olap.constant.CompareType;
 import com.baidu.unbiz.olap.constant.SortOrder;
 import com.baidu.unbiz.olap.demo.yyy.bo.MultiUserStatDayItem;
 import com.baidu.unbiz.olap.demo.yyy.bo.StatDayItem;
@@ -16,7 +15,7 @@ import com.baidu.unbiz.olap.demo.yyy.service.YyyAbstractOlapService;
 import com.baidu.unbiz.olap.driver.bo.ReportRequest;
 import com.baidu.unbiz.olap.driver.bo.ReportRequestBuilder;
 import com.baidu.unbiz.olap.obj.Pair;
-import com.baidu.unbiz.olap.util.OlapUtils;
+import com.baidu.unbiz.olap.utils.OlapUtils;
 
 /**
  * 应用方可抽象一层 XxxAbstractOlapService,其继承自AbstractOlapService,封装业务定制功能

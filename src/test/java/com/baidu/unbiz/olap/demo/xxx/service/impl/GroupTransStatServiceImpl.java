@@ -12,7 +12,7 @@ import com.baidu.unbiz.olap.demo.xxx.service.GroupTransStatService;
 import com.baidu.unbiz.olap.demo.xxx.service.XxxAbstractOlapService;
 import com.baidu.unbiz.olap.driver.bo.ReportRequest;
 import com.baidu.unbiz.olap.driver.bo.ReportRequestBuilder;
-import com.baidu.unbiz.olap.util.OlapUtils;
+import com.baidu.unbiz.olap.utils.OlapUtils;
 
 @Service
 public class GroupTransStatServiceImpl extends XxxAbstractOlapService implements GroupTransStatService {

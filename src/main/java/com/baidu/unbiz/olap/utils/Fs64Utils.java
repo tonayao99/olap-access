@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.util;
+package com.baidu.unbiz.olap.utils;
 
 import java.math.BigInteger;
 import java.util.Collection;

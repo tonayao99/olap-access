@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.util;
+package com.baidu.unbiz.olap.utils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,7 +14,6 @@ import com.baidu.unbiz.olap.constant.OlapConstants;
 import com.baidu.unbiz.olap.constant.SortOrder;
 import com.baidu.unbiz.olap.demo.yyy.bo.MultiStatItem;
 import com.baidu.unbiz.olap.demo.yyy.constant.YYY;
-import com.baidu.unbiz.olap.util.ReportUtils;
 
 /**
  * SchemaLoader测试类

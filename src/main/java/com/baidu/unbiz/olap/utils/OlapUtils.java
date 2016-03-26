@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.util;
+package com.baidu.unbiz.olap.utils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

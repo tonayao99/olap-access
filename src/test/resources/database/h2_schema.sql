@@ -4,8 +4,8 @@ CREATE SCHEMA IF NOT EXISTS olap;
 USE olap;
 
 SET @MDATABASE_TO_UPPER=false;
-CREATE ALIAS UNIX_TIMESTAMP FOR "com.baidu.unbiz.olap.util.H2Support.getUnixTime";
-CREATE ALIAS DATE FOR "com.baidu.unbiz.olap.util.H2Support.getDate";
+CREATE ALIAS UNIX_TIMESTAMP FOR "com.baidu.unbiz.olap.utils.H2Support.getUnixTime";
+CREATE ALIAS DATE FOR "com.baidu.unbiz.olap.utils.H2Support.getDate";
 
 
 DROP TABLE IF EXISTS DailyGroupStats;

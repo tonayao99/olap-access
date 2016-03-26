@@ -32,10 +32,10 @@ import com.baidu.unbiz.olap.log.AopLogFactory;
 import com.baidu.unbiz.olap.obj.ItemAble;
 import com.baidu.unbiz.olap.obj.DateTriple;
 import com.baidu.unbiz.olap.obj.Pair;
-import com.baidu.unbiz.olap.util.ArrayUtils;
-import com.baidu.unbiz.olap.util.DateUtils;
-import com.baidu.unbiz.olap.util.OlapUtils;
-import com.baidu.unbiz.olap.util.ReportUtils;
+import com.baidu.unbiz.olap.utils.ArrayUtils;
+import com.baidu.unbiz.olap.utils.DateUtils;
+import com.baidu.unbiz.olap.utils.OlapUtils;
+import com.baidu.unbiz.olap.utils.ReportUtils;
 
 /**
  * 基本统计数据查询类，主要用于查询olap

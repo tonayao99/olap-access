@@ -15,7 +15,7 @@ import com.baidu.unbiz.olap.demo.yyy.service.DspStatService;
 import com.baidu.unbiz.olap.demo.yyy.service.YyyAbstractOlapService;
 import com.baidu.unbiz.olap.driver.bo.ReportRequest;
 import com.baidu.unbiz.olap.driver.bo.ReportRequestBuilder;
-import com.baidu.unbiz.olap.util.OlapUtils;
+import com.baidu.unbiz.olap.utils.OlapUtils;
 
 /**
  * 应用方可抽象一层 YyyAbstractOlapService,其继承自AbstractOlapService,封装业务定制功能

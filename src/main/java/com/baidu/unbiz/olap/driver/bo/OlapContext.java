@@ -8,8 +8,8 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.baidu.unbiz.olap.obj.ItemAble;
-import com.baidu.unbiz.olap.util.OlapUtils;
-import com.baidu.unbiz.olap.util.StringUtils;
+import com.baidu.unbiz.olap.utils.OlapUtils;
+import com.baidu.unbiz.olap.utils.StringUtils;
 
 /**
  * Olap请求上下文环境

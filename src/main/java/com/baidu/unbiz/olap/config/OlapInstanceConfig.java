@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.baidu.unbiz.olap.util.DateUtils;
-import com.baidu.unbiz.olap.util.Fs64Utils;
-import com.baidu.unbiz.olap.util.StringUtils;
+import com.baidu.unbiz.olap.utils.DateUtils;
+import com.baidu.unbiz.olap.utils.Fs64Utils;
+import com.baidu.unbiz.olap.utils.StringUtils;
 
 /**
  * 一组Olap实例的业务配置

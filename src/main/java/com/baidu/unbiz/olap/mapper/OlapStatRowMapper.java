@@ -23,7 +23,7 @@ import com.baidu.unbiz.olap.annotation.OlapTablePlus;
 import com.baidu.unbiz.olap.common.MethodPair;
 import com.baidu.unbiz.olap.log.AopLogFactory;
 import com.baidu.unbiz.olap.obj.BaseItem;
-import com.baidu.unbiz.olap.util.OlapUtils;
+import com.baidu.unbiz.olap.utils.OlapUtils;
 
 /**
  * OLAP查询Mapper类

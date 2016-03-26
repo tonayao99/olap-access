@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.util;
+package com.baidu.unbiz.olap.utils;
 
 import java.text.Format;
 import java.text.ParseException;
@@ -498,12 +498,12 @@ public class DateUtils {
     }
 
     /**
-     * 生成java.util.Date类型的对象
+     * 生成java.utils.Date类型的对象
      * 
      * @param year int 年
      * @param month int 月
      * @param day int 日
-     * @return Date java.util.Date类型的对象
+     * @return Date java.utils.Date类型的对象
      */
     public static Date getDate(int year, int month, int day) {
         GregorianCalendar d = new GregorianCalendar(year, month - 1, day);
@@ -520,13 +520,13 @@ public class DateUtils {
     }
 
     /**
-     * 生成java.util.Date类型的对象
+     * 生成java.utils.Date类型的对象
      * 
      * @param year int 年
      * @param month int 月
      * @param day int 日
      * @param hour int 小时
-     * @return Date java.util.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getDate(int year, int month, int day, int hour) {
         GregorianCalendar d = new GregorianCalendar(year, month - 1, day, hour, 0);
@@ -537,7 +537,7 @@ public class DateUtils {
      * 生成圆整至小时的当前时间 例如：若当前时间为（2004-08-01 11:30:58），
      * 将获得（2004-08-01 11:00:00）的日期对象
      * 
-     * @return Date java.util.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getRoundedHourCurDate() {
 
@@ -555,7 +555,7 @@ public class DateUtils {
      * 生成当天零时的日期对象 例如：若当前时间为（2004-08-01 11:30:58），
      * 将获得（2004-08-01 00:00:00）的日期对象
      * 
-     * @return Date java.util.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getRoundedDayCurDate() {
         Calendar cal = new GregorianCalendar();
@@ -568,7 +568,7 @@ public class DateUtils {
      * 生成某天零时的日期对象 例如：若输入时间为（2004-08-01 11:30:58），
      * 将获得（2004-08-01 00:00:00）的日期对象
      * 
-     * @return Date java.util.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getRoundedDay(Date dt) {
         Calendar cal = new GregorianCalendar();
@@ -581,8 +581,8 @@ public class DateUtils {
      * 生成圆整至小时的当前时间 例如：若给定时间为（2004-08-01 11:30:58），
      * 将获得（2004-08-01 11:00:00）的日期对象
      * 
-     * @param dt Date java.util.Date对象
-     * @return Date java.util.Date对象
+     * @param dt Date java.utils.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getRoundedHourDate(Date dt) {
 
@@ -602,8 +602,8 @@ public class DateUtils {
      * 将获得（2004-08-02 00:00:00）的日期对象 若给定时间为（2004-08-31
      * 11:30:58），将获得（2004-09-01 00:00:00）的日期对象
      * 
-     * @param dt Date 给定的java.util.Date对象
-     * @return Date java.util.Date对象
+     * @param dt Date 给定的java.utils.Date对象
+     * @return Date java.utils.Date对象
      */
 
     public static Date getNextDay(Date dt) {
@@ -637,9 +637,9 @@ public class DateUtils {
     }
 
     /**
-     * @param dt Date 给定的java.util.Date对象
+     * @param dt Date 给定的java.utils.Date对象
      * @param weekDay int 就是周几的”几“，周日是7
-     * @return Date java.util.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getWeekDay(Date dt, int weekDay) {
         Calendar cal = new GregorianCalendar();
@@ -657,8 +657,8 @@ public class DateUtils {
      * 将获得（2004-08-02 00:00:00）的日期对象 若给定时间为（2004-08-31
      * 11:30:58），将获得（2004-09-01 00:00:00）的日期对象
      * 
-     * @param dt Date 给定的java.util.Date对象
-     * @return Date java.util.Date对象
+     * @param dt Date 给定的java.utils.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getNextDay(Date dt, Long n) {
 
@@ -740,7 +740,7 @@ public class DateUtils {
      * 将获得（2004-08-02 00:00:00）的日期对象 若当前时间为（2004-08-31
      * 11:30:58），将获得（2004-09-01 00:00:00）的日期对象
      * 
-     * @return Date java.util.Date对象
+     * @return Date java.utils.Date对象
      */
     public static Date getNextDay() {
 
@@ -751,7 +751,7 @@ public class DateUtils {
     }
 
     /**
-     * 将java.util.Date类型的对象转换为java.sql.Timestamp类型的对象
+     * 将java.utils.Date类型的对象转换为java.sql.Timestamp类型的对象
      * 
      * @param dt Date
      * @return Timestamp

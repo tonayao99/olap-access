@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 
 import com.baidu.unbiz.olap.log.AopLogFactory;
 import com.baidu.unbiz.olap.obj.ItemAble;
-import com.baidu.unbiz.olap.util.Fs64Utils;
+import com.baidu.unbiz.olap.utils.Fs64Utils;
 
 /**
  * 异步缓存Task

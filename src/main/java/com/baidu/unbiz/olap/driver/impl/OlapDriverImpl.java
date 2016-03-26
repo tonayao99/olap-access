@@ -35,9 +35,9 @@ import com.baidu.unbiz.olap.mapper.OlapStatRowMapper;
 import com.baidu.unbiz.olap.mapper.OlapStringTypeRowMapper;
 import com.baidu.unbiz.olap.obj.ItemAble;
 import com.baidu.unbiz.olap.obj.Pair;
-import com.baidu.unbiz.olap.utils.ArrayUtils;
-import com.baidu.unbiz.olap.utils.DateUtils;
-import com.baidu.unbiz.olap.utils.StringUtils;
+import com.baidu.unbiz.olap.util.ArrayUtils;
+import com.baidu.unbiz.olap.util.DateUtils;
+import com.baidu.unbiz.olap.util.StringUtils;
 
 /**
  * OLAP数据查询DAO层Driver封装

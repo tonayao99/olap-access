@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.utils;
+package com.baidu.unbiz.olap.util;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;

@@ -14,7 +14,7 @@ import org.springframework.context.SmartLifecycle;
 
 import com.baidu.unbiz.olap.config.OlapInstanceConfig;
 import com.baidu.unbiz.olap.driver.OlapEngineDriver;
-import com.baidu.unbiz.olap.utils.StringUtils;
+import com.baidu.unbiz.olap.util.StringUtils;
 
 /**
  * 表元信息加载器

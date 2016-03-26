@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.utils;
+package com.baidu.unbiz.olap.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

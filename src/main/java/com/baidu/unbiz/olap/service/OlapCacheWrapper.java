@@ -10,8 +10,8 @@ import com.baidu.unbiz.olap.cache.AsynTaskUtils;
 import com.baidu.unbiz.olap.cache.OlapCacheHandler;
 import com.baidu.unbiz.olap.driver.bo.ReportRequest;
 import com.baidu.unbiz.olap.obj.ItemAble;
-import com.baidu.unbiz.olap.utils.DateUtils;
-import com.baidu.unbiz.olap.utils.Fs64Utils;
+import com.baidu.unbiz.olap.util.DateUtils;
+import com.baidu.unbiz.olap.util.Fs64Utils;
 
 @Component
 public class OlapCacheWrapper {

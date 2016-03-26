@@ -23,7 +23,7 @@ import com.baidu.unbiz.olap.exception.OlapException;
 import com.baidu.unbiz.olap.log.AopLogFactory;
 import com.baidu.unbiz.olap.rule.DBShardingRule;
 import com.baidu.unbiz.olap.schema.SchemaLoader;
-import com.baidu.unbiz.olap.utils.StringUtils;
+import com.baidu.unbiz.olap.util.StringUtils;
 
 /**
  * OlapEngine DB相关抽象类

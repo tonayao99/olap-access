@@ -1,4 +1,4 @@
-package com.baidu.unbiz.olap.utils;
+package com.baidu.unbiz.olap.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;

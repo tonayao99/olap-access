@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import com.baidu.unbiz.olap.annotation.OlapColumn;
 import com.baidu.unbiz.olap.demo.yyy.constant.YYY;
 import com.baidu.unbiz.olap.obj.BaseItem;
-import com.baidu.unbiz.olap.utils.NumberUtil;
+import com.baidu.unbiz.olap.util.NumberUtil;
 
 
 /**

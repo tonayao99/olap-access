@@ -23,8 +23,8 @@ import org.slf4j.Logger;
 import com.baidu.unbiz.olap.common.MethodPair;
 import com.baidu.unbiz.olap.exception.ReportException;
 import com.baidu.unbiz.olap.log.AopLogFactory;
-import com.baidu.unbiz.olap.utils.Fs64Utils;
-import com.baidu.unbiz.olap.utils.OlapUtils;
+import com.baidu.unbiz.olap.util.Fs64Utils;
+import com.baidu.unbiz.olap.util.OlapUtils;
 
 public class CodeGenerator {
 

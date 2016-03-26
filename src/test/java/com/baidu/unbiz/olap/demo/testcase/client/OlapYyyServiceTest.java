@@ -65,7 +65,7 @@ public class OlapYyyServiceTest {
 
 
     // 推荐：使用Builder模式，查询单用户数据
-    //@Test
+    @Test
     public void testCountByBuilder() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);
@@ -77,7 +77,7 @@ public class OlapYyyServiceTest {
 
 
     // 推荐：使用Builder模式，查询单用户，多Olap表数据
-    //@Test
+    @Test
     public void testMultiOlapTableQuery() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);
@@ -89,7 +89,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐：使用Builder模式，查询单用户，多Olap表数据
-    //@Test
+    @Test
     public void testMultiOlapTableByUserSpecifyOneTableQuery() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);

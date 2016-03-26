@@ -8,17 +8,9 @@
 
     <!--  ========================= import user applicationContext =========================== -->
 
-    <!--
-    <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="classpath:database/h2_schema.sql"/>
-    </jdbc:embedded-database>
-    -->
-
-
     <jdbc:initialize-database data-source="olap_000">
         <jdbc:script location="classpath:database/h2_schema.sql"/>
     </jdbc:initialize-database>
-
 
     <import resource="applicationContext-olap.xml"/>
 </beans>

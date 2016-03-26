@@ -21,8 +21,7 @@ import com.baidu.unbiz.olap.util.OlapUtils;
  * 应用方可抽象一层 YyyAbstractOlapService,其继承自AbstractOlapService,封装业务定制功能
  * 
  * @author wangchongjie
- * @fileName DspStatServiceWithCacheImpl.java
- * @dateTime 2013-12-11 上午11:29:43
+ * @since 2013-12-11 上午11:29:43
  */
 @Service
 public class DspStatServiceWithCacheImpl extends YyyAbstractOlapService implements DspStatService {

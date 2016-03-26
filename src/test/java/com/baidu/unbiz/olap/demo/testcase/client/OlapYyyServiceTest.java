@@ -101,7 +101,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐：Olap缓存功能测试，
-    //@Test
+    @Test
     public void testQueryByBuilderWithCache() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);
@@ -122,7 +122,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐：Olap缓存功能测试
-    //@Test
+    //@Test TODOCJ
     public void testCountByBuilderWithCache() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);
@@ -140,7 +140,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐: 建模带别名alias方式查询，支持单表与多表
-    //@Test
+    @Test
     public void testQueryWithAliasByBuilder() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);
@@ -156,7 +156,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐: 建模带别名alias方式查询，支持单表与多表
-    //@Test
+    @Test
     public void testCountWithAliasByBuilder() {
         Integer dspId = 8;
         Date from = newDate(2015, 7, 1);
@@ -168,7 +168,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐: 批量全库数据查询
-    //@Test
+    @Test
     public void testBatchQueryByBuilder() {
         Date from = newDate(2015, 7, 1);
         Date to = newDate(2015, 7, 30);
@@ -183,7 +183,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐: 批量查询并将结果导出至文件
-    //@Test
+    @Test
     public void testBatchQuery2File() {
         Date from = newDate(2015, 7, 1);
         Date to = newDate(2015, 7, 30);
@@ -193,7 +193,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐：使用Builder模式，查询多用户数据
-    //@Test
+    @Test
     public void testMultiUserQueryInSameSharding() {
         List<Integer> dspIds = new ArrayList<Integer>();
         dspIds.addAll(Arrays.asList(new Integer[] { 62, 63 }));
@@ -209,7 +209,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐：使用Builder模式，查询多用户数据，单表数据
-    //@Test
+    @Test
     public void testMultiUserQueryInDifferentSharding() {
         List<Integer> dspIds = new ArrayList<Integer>();
         dspIds.addAll(Arrays.asList(new Integer[] { 8, 62, 63, 64 }));
@@ -225,7 +225,7 @@ public class OlapYyyServiceTest {
     }
 
     // 推荐：使用Builder模式，查询一个范围的用户数据
-    //@Test
+    @Test
     public void testQueryRangeUserByBuilder() {
         Date from = newDate(2015, 7, 1);
         Date to = newDate(2015, 7, 30);
@@ -240,7 +240,7 @@ public class OlapYyyServiceTest {
 
 
     // 推荐：使用Builder模式，查询多用户，多Olap表数据
-    //@Test
+    @Test
     public void testMultiOlapTableByMultiUserQuery() {
         List<Integer> dspIds = new ArrayList<Integer>();
         dspIds.addAll(Arrays.asList(new Integer[] { 8, 62, 63, 64 }));
